@@ -10,7 +10,7 @@ interface PageHeroProps {
 
 export const PageHero = ({ title, subtitle, backgroundImage }: PageHeroProps) => {
   return (
-    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[63vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Parallax Background */}
       <div className="absolute inset-0">
         <Parallax speed={-20} className="absolute inset-0 h-[130%] -top-[15%]">

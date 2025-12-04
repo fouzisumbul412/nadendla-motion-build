@@ -60,12 +60,12 @@ export const HeroSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl"
+          className="max-w-6xl"
         >
           {/* Tagline */}
           <motion.p
             variants={itemVariants}
-            className="font-tagline italic text-accent text-lg md:text-xl mb-4"
+            className="font-tagline italic text-accent items-center justify-center text-center text-lg md:text-xl mb-4"
           >
             Building Excellence Since 1998
           </motion.p>
@@ -73,26 +73,27 @@ export const HeroSection = () => {
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-7xl font-heading font-extrabold text-primary-foreground leading-tight mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary-foreground items-center justify-center text-center leading-tight mb-6"
           >
             Building Landmark
-            <br />
-            <span className="text-accent">Futures</span> with
-            <br />
+            
+            <span className="text-accent"> Futures</span> 
+             <br />with
+           
             Precision & Trust
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed"
+            className="text-primary-foreground/80 text-lg md:text-xl max-w-3xl mb-8 items-center justify-center text-center leading-relaxed"
           >
             Nadendla Constructions delivers world-class industrial and infrastructure 
             projects with uncompromising quality, safety, and innovation.
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 items-center justify-center text-center">
             <Link to="/projects">
               <Button variant="hero" size="xl">
                 Explore Our Work
@@ -108,10 +109,9 @@ export const HeroSection = () => {
           </motion.div>
 
           {/* Stats Preview */}
-          <motion.div
+          {/* <motion.div
             variants={itemVariants}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-primary-foreground/20 pt-8"
-          >
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-primary-foreground/20 pt-8"          >
             {[
               { value: "25+", label: "Years Experience" },
               { value: "500+", label: "Projects Delivered" },
@@ -127,7 +127,7 @@ export const HeroSection = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
 
