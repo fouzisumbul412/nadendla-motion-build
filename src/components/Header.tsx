@@ -21,6 +21,11 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -37,16 +42,15 @@ export const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-primary shadow-elevated py-3"
-          : "bg-transparent py-5"
+        isScrolled ? "bg-primary shadow-elevated py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.02 }}>
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
               <img src={logo} alt="Nadendla Constructions" className="h-12 w-auto" />
             </Link>
           </motion.div>
@@ -62,6 +66,7 @@ export const Header = () => {
               >
                 <Link
                   to={link.href}
+                  onClick={scrollToTop}
                   className={`px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${
                     isActive(link.href)
                       ? "text-accent"
@@ -69,9 +74,13 @@ export const Header = () => {
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-3 right-3 h-0.5 bg-accent transform transition-transform duration-300 origin-left ${
-                    isActive(link.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`} />
+                  <span
+                    className={`absolute bottom-0 left-3 right-3 h-0.5 bg-accent transform transition-transform duration-300 origin-left ${
+                      isActive(link.href)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -83,10 +92,9 @@ export const Header = () => {
               <Phone className="h-4 w-4 text-accent" />
               <span className="text-sm font-medium">+91 98765 43210</span>
             </a>
-            <Link to="/contact">
-              <Button variant="accent" size="sm">
-                Get a Quote
-              </Button>
+
+            <Link to="/contact" onClick={scrollToTop}>
+              <Button variant="accent" size="sm">Get a Quote</Button>
             </Link>
           </div>
 
@@ -114,15 +122,27 @@ export const Header = () => {
                 <Link
                   key={link.name}
                   to={link.href}
+                  onClick={() => {
+                    scrollToTop();
+                    setIsMobileMenuOpen(false);
+                  }}
                   className={`py-2 text-lg font-medium transition-colors ${
-                    isActive(link.href) ? "text-accent" : "text-primary-foreground hover:text-accent"
+                    isActive(link.href)
+                      ? "text-accent"
+                      : "text-primary-foreground hover:text-accent"
                   }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+
+              <Link
+                to="/contact"
+                onClick={() => {
+                  scrollToTop();
+                  setIsMobileMenuOpen(false);
+                }}
+              >
                 <Button variant="accent" className="mt-4 w-full">
                   Get a Quote
                 </Button>

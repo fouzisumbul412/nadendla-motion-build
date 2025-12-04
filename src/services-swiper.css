@@ -1,0 +1,10 @@
+/* Smooth easing & proper transition curve */
+.services-swiper {
+  --swiper-transition-timing-function: ease-in-out;
+}
+
+/* Prevent slide shrink while scaling */
+.slide-item {
+  transform-origin: center;
+  transition: transform 0.5s ease, z-index 0.5s ease;
+}
