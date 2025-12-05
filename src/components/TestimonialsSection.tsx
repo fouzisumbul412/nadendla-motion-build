@@ -8,23 +8,34 @@ const testimonials = [
     id: 1,
     name: "Rajesh Kumar",
     role: "CEO, Kumar Industries",
-    content: "Nadendla Constructions delivered our industrial facility ahead of schedule. Their attention to detail and commitment to quality is unmatched. Highly recommended for any large-scale construction project.",
+    content:
+      "Nadendla Constructions delivered our industrial facility ahead of schedule. Their attention to detail and commitment to quality is unmatched. Highly recommended for any large-scale construction project.",
     rating: 5,
   },
   {
     id: 2,
     name: "Priya Sharma",
     role: "Managing Director, Sharma Enterprises",
-    content: "Working with Nadendla was a seamless experience. Their team's expertise in commercial construction helped us create a workspace that truly reflects our brand. Outstanding work!",
+    content:
+      "Working with Nadendla was a seamless experience. Their team's expertise in commercial construction helped us create a workspace that truly reflects our brand. Outstanding work!",
     rating: 5,
   },
   {
     id: 3,
     name: "Vikram Reddy",
     role: "Project Manager, Metro Corp",
-    content: "The professionalism and technical excellence of Nadendla Constructions is remarkable. They handled our complex infrastructure project with utmost precision and delivered exceptional results.",
+    content:
+      "The professionalism and technical excellence of Nadendla Constructions is remarkable. They handled our complex infrastructure project with utmost precision and delivered exceptional results.",
     rating: 5,
   },
+];
+const clientLogos = [
+  "/assets/images/outright_creators_logo.jpg",
+  "/assets/images/iron.jpg",
+  "/assets/images/iron-3.avif",
+  "/assets/images/iron-2.png",
+  "/assets/images/ab-cement.jpg",
+  "/assets/images/6.jpg",
 ];
 
 export const TestimonialsSection = () => {
@@ -32,8 +43,12 @@ export const TestimonialsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const next = () =>
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () =>
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
 
   return (
     <section className="section-padding bg-background" ref={ref}>
@@ -54,7 +69,7 @@ export const TestimonialsSection = () => {
 
             <div className="relative">
               <Quote className="h-12 w-12 text-accent/30 mb-4" />
-              
+
               <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, y: 20 }}
@@ -65,7 +80,7 @@ export const TestimonialsSection = () => {
                 <p className="text-lg font-tagline italic text-muted-foreground mb-6 leading-relaxed">
                   "{testimonials[currentIndex].content}"
                 </p>
-                
+
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-accent text-accent" />
@@ -114,19 +129,19 @@ export const TestimonialsSection = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-6">
-              {[...Array(6)].map((_, index) => (
+              {clientLogos.map((logo, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="aspect-square border border-border rounded-lg p-4 flex items-center justify-center hover:border-accent/50 hover:shadow-soft transition-all"
+                  className="aspect-square border border-border rounded-lg  flex items-center justify-center hover:border-accent/50 hover:shadow-soft transition-all bg-white"
                 >
-                  <div className="text-muted-foreground/50">
-                    <svg className="h-12 w-12" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1" fill="none" />
-                    </svg>
-                  </div>
+                  <img
+                    src={logo}
+                    alt={`Client ${index + 1}`}
+                    className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition"
+                  />
                 </motion.div>
               ))}
             </div>

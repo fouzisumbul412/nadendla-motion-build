@@ -5,7 +5,7 @@ import { Parallax } from "react-scroll-parallax";
 import { Link } from "react-router-dom";
 import { CheckCircle, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import teamImage from "@/assets/team-construction.jpg";
+import teamImage from "/assets/images/team-construction.jpg";
 import heroImage from "@/assets/hero-construction.jpg";
 
 const features = [
@@ -20,11 +20,19 @@ export const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative section-padding overflow-hidden" ref={ref}>
+    <section
+      id="about"
+      className="relative section-padding overflow-hidden"
+      ref={ref}
+    >
       {/* Parallax Background */}
       <div className="absolute inset-0">
         <Parallax speed={-8} className="absolute inset-0 h-[120%] -top-[10%]">
-          <img src={heroImage} alt="Construction background" className="w-full h-full object-cover opacity-5" />
+          <img
+            src={heroImage}
+            alt="Construction background"
+            className="w-full h-full object-cover opacity-5"
+          />
         </Parallax>
         <div className="absolute inset-0 bg-secondary" />
       </div>
@@ -46,10 +54,10 @@ export const AboutSection = () => {
               Industrial Services!
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Nadendla Constructions is a leading construction company specializing in 
-              industrial plants, infrastructure development, and large-scale commercial 
-              projects. With over 25 years of experience, we transform visions into 
-              landmark structures.
+              Nadendla Constructions is a leading construction company
+              specializing in industrial plants, infrastructure development, and
+              large-scale commercial projects. With over 25 years of experience,
+              we transform visions into landmark structures.
             </p>
 
             {/* Feature List */}
@@ -97,7 +105,11 @@ export const AboutSection = () => {
               >
                 <Building2 className="h-8 w-8 mb-2" />
                 <div className="text-4xl font-heading font-bold">25</div>
-                <div className="text-sm font-medium">Years Of<br />Experience</div>
+                <div className="text-sm font-medium">
+                  Years Of
+                  <br />
+                  Experience
+                </div>
               </motion.div>
             </div>
           </motion.div>

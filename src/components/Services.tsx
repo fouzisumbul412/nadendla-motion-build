@@ -1,27 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Factory,
-  Building,
-  HardHat,
-  Wrench,
-  Ruler,
-  Truck,
-} from "lucide-react";
+import { Factory, Building, HardHat, Wrench, Ruler, Truck } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import gsap from "gsap";
-import "../services-swiper.css";
 
-// Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-// Images
 import factoryImage from "/assets/images/factory.jpg";
 import buildingImage from "/assets/images/building.jpg";
 import infrastructureImage from "/assets/images/infrastructure.jpg";
@@ -76,22 +66,38 @@ const services = [
 
 const Services = () => {
   const headingRef = useRef(null);
-  const isInView = useInView(headingRef, { once: true, margin: "-100px" });
+  const isInView = useInView(headingRef, { once: true });
+
+  const slideRefs = useRef<HTMLDivElement[]>([]);
+
+  const applyCenterEffect = useCallback((index: number) => {
+    slideRefs.current.forEach((slide, i) => {
+      if (!slide) return;
+
+      const isActive = i === index;
+
+      gsap.to(slide, {
+        scale: isActive ? 1.12 : 0.9,
+        rotateY: isActive ? 0 : -12,
+        zIndex: isActive ? 10 : 1,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+    });
+  }, []);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
-
     gsap.fromTo(
       ".service-card",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, stagger: 0.2 }
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, stagger: 0.2, duration: 0.7 }
     );
   }, []);
 
   return (
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        {/* Heading */}
         <motion.div
           ref={headingRef}
           initial={{ opacity: 0, y: 30 }}
@@ -99,7 +105,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-accent font-semibold mb-2 tracking-wider uppercase text-sm">
+          <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-sm">
             What We Offer
           </p>
 
@@ -113,83 +119,63 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* 3D + Center Zoom Carousel */}
+        {/* FIXED — Smooth Center Zoom Carousel */}
         <Swiper
           modules={[Autoplay, Navigation]}
-          centeredSlides={true}
-          loop={true}
+          centeredSlides
+          loop
           spaceBetween={40}
           speed={900}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          navigation={true}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          navigation
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="pb-10 services-swiper"
-          onSlideChangeTransitionEnd={(swiper) => {
-            const slideElements =
-              document.querySelectorAll(".slide-item");
-
-            slideElements.forEach((el, index) => {
-              const slide = el as HTMLElement;
-
-              if (index === swiper.realIndex) {
-                slide.style.transform = "scale(1.12) rotateY(0deg)";
-                slide.style.zIndex = "100";
-              } else {
-                slide.style.transform =
-                  "scale(0.9) rotateY(-12deg)";
-                slide.style.zIndex = "1";
-              }
-            });
+          onSwiper={(swiper) => {
+            setTimeout(() => applyCenterEffect(swiper.realIndex), 50);
           }}
+          onSlideChange={(swiper) => {
+            applyCenterEffect(swiper.realIndex);
+          }}
+          className="pb-10"
         >
           {services.map((service, index) => (
             <SwiperSlide key={index}>
-              <motion.div
-                className="
-                  slide-item relative w-full transition-all duration-500
-                  hover:scale-[1.08] hover:-translate-y-2
-                "
+              <div
+                ref={(el) => {
+                  if (el) slideRefs.current[index] = el;
+                }}
+                className="slide-item transition-all duration-700"
               >
-                {/* Image */}
-                <div className="overflow-hidden rounded-xl shadow-lg">
+                <div className="overflow-hidden rounded-xl shadow-lg h-64">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-60 object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full  object-cover object-center transition-transform duration-500 hover:scale-110"
                   />
                 </div>
 
-                {/* Card */}
-                <div className="service-card relative bg-white p-6 shadow-2xl rounded-xl -mt-12 mx-auto w-11/12">
-                  <div className="text-[#FFA90D] text-3xl">
-                    {service.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-semibold text-[#2D266C] mt-4">
+                <div className="service-card bg-white p-6 shadow-2xl rounded-xl -mt-12 mx-auto w-11/12">
+                  <h3 className="text-2xl font-semibold text-[#2D266C] mt-4 flex items-center gap-2">
+                    <span className="text-[#FFA90D] text-3xl">
+                      {service.icon}
+                    </span>
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-700 mt-2">
-                    {service.description}
-                  </p>
+                  <p className="text-gray-700 mt-2">{service.description}</p>
 
                   <Button
                     variant="outline"
                     size="lg"
                     className="mt-4 text-[#2D266C] hover:text-[#FFA90D] border-[#FFA90D]"
                   >
-                    Read More{" "}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Read More <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
