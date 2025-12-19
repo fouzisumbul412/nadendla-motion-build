@@ -10,7 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/nadendla-logo.png";
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
@@ -43,7 +43,7 @@ export const Footer = () => {
               <img
                 src={logo}
                 alt="Nadendla Constructions"
-                className="h-16 w-auto mb-6 bg-white rounded p-2"
+                className="h-20 w-auto mb-2 bg-transparent rounded p-2"
               />
             </a>
 
@@ -148,7 +148,7 @@ export const Footer = () => {
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/60 text-sm">
-              © 2024 Nadendla Constructions Pvt. Ltd. All rights reserved.
+              © 2024 Nadendla Constructions Pvt. Ltd. All rights reserved.  Powered by <a href="https://www.outrightcreators.com/">Outright Creators</a>
             </p>
 
             <div className="flex gap-6 text-sm">

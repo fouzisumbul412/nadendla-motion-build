@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
-        tagline: ["Playfair Display", "serif"],
-        body: ["Inter", "sans-serif"],
+        heading: ["Vidaloka", "serif"],
+        tagline: ["Vidaloka", "serif"],
+        body: ["Lato", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -71,17 +71,17 @@ export const HeroSection = () => {
           </motion.p>
 
           {/* Main Heading */}
-          <motion.h1
+          <motion.h3
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary-foreground items-center justify-center text-center leading-tight mb-6"
+            className=" text-3xl md:text-4xl lg:text-5xl leading-normal font-heading font-semibold text-primary-foreground items-center justify-center text-center mb-6"
           >
             Building Landmark
             
-            <span className="text-accent"> Futures</span> 
+            <span className="text-accent leading-normal font-semibold"> Futures</span> 
              <br />with
            
             Precision & Trust
-          </motion.h1>
+          </motion.h3>
 
           {/* Description */}
           <motion.p

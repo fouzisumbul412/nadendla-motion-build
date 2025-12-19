@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/nadendla-logo.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -42,7 +42,7 @@ export const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-primary shadow-elevated py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-primary shadow-elevated py-3" : "bg-primary py-5"
       }`}
     >
       <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export const Header = () => {
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.02 }}>
             <Link to="/" onClick={scrollToTop} className="flex items-center gap-3">
-              <img src={logo} alt="Nadendla Constructions" className="h-12 w-auto" />
+              <img src={logo} alt="Nadendla Constructions" className="h-14 w-auto" />
             </Link>
           </motion.div>
 
@@ -67,7 +67,7 @@ export const Header = () => {
                 <Link
                   to={link.href}
                   onClick={scrollToTop}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-300 relative group ${
+                  className={`px-3 py-2 text-sm font-semibold transition-colors duration-300 relative group ${
                     isActive(link.href)
                       ? "text-accent"
                       : "text-primary-foreground hover:text-accent"
