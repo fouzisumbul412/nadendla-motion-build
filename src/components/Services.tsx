@@ -55,13 +55,13 @@ const services = [
       "End-to-end project management ensuring timely delivery, safety, and cost efficiency.",
     image: projectImage,
   },
-  {
-    icon: <Truck />,
-    title: "Heavy Equipment",
-    description:
-      "State-of-the-art machinery and equipment ensuring fast, safe, and efficient execution.",
-    image: heavyEquipmentImage,
-  },
+  // {
+  //   icon: <Truck />,
+  //   title: "Heavy Equipment",
+  //   description:
+  //     "State-of-the-art machinery and equipment ensuring fast, safe, and efficient execution.",
+  //   image: heavyEquipmentImage,
+  // },
 ];
 
 const Services = () => {

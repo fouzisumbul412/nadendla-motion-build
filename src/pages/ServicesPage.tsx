@@ -40,12 +40,12 @@ const services = [
     description: "End-to-end project management ensuring timely delivery and budget optimization.",
     features: ["Planning & Scheduling", "Cost Management", "Quality Control", "Risk Management"],
   },
-  {
-    icon: Truck,
-    title: "Heavy Equipment",
-    description: "State-of-the-art heavy machinery and equipment for efficient project execution.",
-    features: ["Cranes & Lifts", "Earthmoving", "Concrete Equipment", "Transport Fleet"],
-  },
+  // {
+  //   icon: Truck,
+  //   title: "Heavy Equipment",
+  //   description: "State-of-the-art heavy machinery and equipment for efficient project execution.",
+  //   features: ["Cranes & Lifts", "Earthmoving", "Concrete Equipment", "Transport Fleet"],
+  // },
 ];
 
 const ServicesPage = () => {

@@ -40,11 +40,11 @@ const services = [
     title: "Project Management",
     description: "End-to-end project management ensuring timely delivery and budget optimization.",
   },
-  {
-    icon: Truck,
-    title: "Heavy Equipment",
-    description: "State-of-the-art heavy machinery and equipment for efficient project execution.",
-  },
+  // {
+  //   icon: Truck,
+  //   title: "Heavy Equipment",
+  //   description: "State-of-the-art heavy machinery and equipment for efficient project execution.",
+  // },
 ];
 
 const containerVariants = {
