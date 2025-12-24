@@ -11,7 +11,7 @@ const safetyStats = [
   { number: "1M+", label: "Safe Work Hours" },
   { number: "0", label: "Major Incidents" },
   { number: "100%", label: "Safety Compliance" },
-  { number: "50+", label: "Safety Awards" },
+  { number: "50+", label: "Happy Client" },
 ];
 
 const certifications = [

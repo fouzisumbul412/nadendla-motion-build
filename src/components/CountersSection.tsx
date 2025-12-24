@@ -4,10 +4,10 @@ import { useRef, useState, useEffect } from "react";
 import { Building2, Users, Award, Clock } from "lucide-react";
 
 const stats = [
-  { icon: Building2, value: 500, suffix: "+", label: "Projects Completed" },
-  { icon: Users, value: 350, suffix: "+", label: "Happy Clients" },
-  { icon: Clock, value: 25, suffix: "+", label: "Years Experience" },
-  { icon: Award, value: 45, suffix: "", label: "Industry Awards" },
+  { icon: Building2, value: 45, suffix: "+", label: "Projects Completed" },
+  { icon: Users, value: 50, suffix: "+", label: "Happy Clients" },
+  { icon: Clock, value: 15, suffix: "+", label: "Years Experience" },
+  // { icon: Award, value: 45, suffix: "", label: "Industry Awards" },
 ];
 
 const Counter = ({ target, suffix, isInView }: { target: number; suffix: string; isInView: boolean }) => {
@@ -59,7 +59,7 @@ export const CountersSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
         >
           {stats.map((stat, index) => (
             <motion.div

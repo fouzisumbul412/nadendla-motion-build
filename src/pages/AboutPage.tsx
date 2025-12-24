@@ -11,7 +11,7 @@ import teamImage from "@/assets/team-construction.jpg";
 import heroImage from "@/assets/hero-construction.jpg";
 
 const timeline = [
-  { year: "1998", title: "Founded", description: "Nadendla Constructions established with a vision to transform the construction industry." },
+  { year: "2015", title: "Founded", description: "Nadendla Constructions established with a vision to transform the construction industry." },
   { year: "2005", title: "Major Expansion", description: "Expanded operations to include industrial plants and infrastructure projects." },
   { year: "2012", title: "ISO Certification", description: "Achieved ISO 9001:2008 certification for quality management systems." },
   { year: "2018", title: "500+ Projects", description: "Milestone of completing over 500 successful projects across various sectors." },
@@ -37,7 +37,7 @@ const AboutPage = () => {
       <main>
         <PageHero 
           title="About Us" 
-          subtitle="Building landmarks and transforming communities since 1998"
+          subtitle="Building landmarks and transforming communities since 2015"
         />
 
         {/* Company Story */}
@@ -57,7 +57,7 @@ const AboutPage = () => {
                   A Legacy of Excellence in Construction
                 </h2>
                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                  Founded in 1998, Nadendla Constructions has grown from a small construction 
+                  Founded in 2015, Nadendla Constructions has grown from a small construction 
                   firm to one of the region's most trusted names in industrial and infrastructure 
                   development. Our journey is marked by an unwavering commitment to quality, 
                   innovation, and client satisfaction.

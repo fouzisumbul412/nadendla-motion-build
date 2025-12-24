@@ -49,7 +49,7 @@ export const Footer = () => {
 
             <p className="text-primary-foreground/70 mb-6 leading-relaxed">
               Nadendla Constructions Pvt. Ltd. - Building landmark futures with
-              precision, quality, and trust since 1998.
+              precision, quality, and trust since 2015.
             </p>
 
             <div className="flex gap-3">

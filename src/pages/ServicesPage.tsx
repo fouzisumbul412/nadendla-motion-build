@@ -120,9 +120,9 @@ const ServicesPage = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { number: "25+", label: "Years Experience", desc: "Decades of industry expertise" },
-                { number: "500+", label: "Projects Completed", desc: "Successful deliveries across sectors" },
-                { number: "100%", label: "Client Satisfaction", desc: "Commitment to excellence" },
+                { number: "15+", label: "Years Experience", desc: "Decades of industry expertise" },
+                { number: "55+", label: "Projects Completed", desc: "Successful deliveries across sectors" },
+                { number: "50+", label: "Happy Client ", desc: "Commitment to excellence" },
               ].map((stat, index) => (
                 <motion.div
                   key={index}

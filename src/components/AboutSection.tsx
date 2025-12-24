@@ -104,7 +104,7 @@ export const AboutSection = () => {
                 className="absolute -bottom-8 -left-8 bg-accent text-primary-foreground p-6 rounded-lg shadow-accent"
               >
                 <Building2 className="h-8 w-8 mb-2" />
-                <div className="text-4xl font-heading font-bold">25</div>
+                <div className="text-4xl font-heading font-bold">15+</div>
                 <div className="text-sm font-medium">
                   Years Of
                   <br />
