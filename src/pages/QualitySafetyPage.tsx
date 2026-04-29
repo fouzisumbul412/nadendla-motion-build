@@ -15,8 +15,8 @@ const safetyStats = [
 ];
 
 const certifications = [
-  "ISO 9001:2015 - Quality Management",
-  "ISO 14001:2015 - Environmental Management",
+  "ISO 9001:2010 - Quality Management",
+  "ISO 14001:2010 - Environmental Management",
   "ISO 45001:2018 - Occupational Health & Safety",
   "OHSAS 18001 - Occupational Health & Safety",
 ];

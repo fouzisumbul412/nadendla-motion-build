@@ -67,7 +67,7 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="font-tagline italic text-accent items-center justify-center text-center text-lg md:text-xl mb-4"
           >
-            Building Excellence Since 2015
+            Building Excellence Since 2010
           </motion.p>
 
           {/* Main Heading */}

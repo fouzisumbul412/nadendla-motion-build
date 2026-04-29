@@ -56,7 +56,7 @@ export const AboutSection = () => {
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Nadendla Constructions is a leading construction company
               specializing in industrial plants, infrastructure development, and
-              large-scale commercial projects. With over 25 years of experience,
+              large-scale commercial projects. With over 15 years of experience,
               we transform visions into landmark structures.
             </p>
 
